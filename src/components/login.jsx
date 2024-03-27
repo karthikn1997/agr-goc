@@ -25,7 +25,7 @@ export default function Login() {
     setLoading(true);
     try {
       const response = await axios.post(
-        `http://localhost:9000/api/auth/login`,
+        `https://agr-frontend.netlify.app/api/auth/login`,
         values
       );
 
