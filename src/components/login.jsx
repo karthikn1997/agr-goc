@@ -25,7 +25,7 @@ export default function Login() {
     setLoading(true);
     try {
       const response = await axios.post(
-        `https://agr-frontend.netlify.app/api/auth/login`,
+        `https://agr-backend-m85q.onrender.com/api/auth/login`,
         values
       );
 
