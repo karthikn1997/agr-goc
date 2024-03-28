@@ -6,9 +6,8 @@ import Register from "./components/register";
 import KYCForm from "./components/kyc";
 import SuccessPage from "./components/success";
 import PaymentPage from "./components/payment";
+import PaymentApprovalForm from "./components/approval";
 import "./App.css";
-
-
 
 function App() {
   return (
@@ -19,6 +18,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/kyc" element={<KYCForm />} />
         <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/approval" element={<PaymentApprovalForm />} />
         <Route path="/success" element={<SuccessPage />} />
       </Routes>
     </Router>
