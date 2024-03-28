@@ -4,7 +4,9 @@ import Login from "./components/login";
 import Info from "./components/info";
 import Register from "./components/register";
 import KYCForm from "./components/kyc";
+import SuccessPage from "./components/success";
 import "./App.css";
+
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/kyc" element={<KYCForm />} />
+        <Route path="/success" element={<SuccessPage />} />
       </Routes>
     </Router>
   );

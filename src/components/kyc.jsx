@@ -65,7 +65,7 @@ export default function KYCForm() {
   const formik = useFormik({
     initialValues: {
       referenceId: "",
-      addressProof: "",
+      addressProof: "", // New field for address proof
       photo: "",
       nomineeDetail: "",
       accountDetail: "",
@@ -102,7 +102,112 @@ export default function KYCForm() {
                 <p className="text-red-500 mb-4">{formik.errors.referenceId}</p>
               )}
 
-              {/* Repeat similar input fields for other form fields */}
+              {/* Input field for address proof upload */}
+              <div className="mb-4">
+                <label htmlFor="addressProof" className="block mb-2">
+                  Upload Address Proof:
+                </label>
+                <input
+                  type="file"
+                  accept="application/pdf"
+                  id="addressProof"
+                  className="w-full bg-gray-200 rounded-lg py-3 px-4"
+                  name="addressProof"
+                  onChange={(event) => {
+                    formik.setFieldValue(
+                      "addressProof",
+                      event.currentTarget.files[0]
+                    );
+                  }}
+                />
+              </div>
+              {/* Display error message if touched and there's an error */}
+              {formik.touched.addressProof && formik.errors.addressProof && (
+                <p className="text-red-500 mb-4">
+                  {formik.errors.addressProof}
+                </p>
+              )}
+
+              {/* Input field for Photo upload */}
+              <div className="mb-4">
+                <label htmlFor="photo" className="block mb-2">
+                  Upload Photo:
+                </label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  id="photo"
+                  className="w-full bg-gray-200 rounded-lg py-3 px-4"
+                  name="photo"
+                  onChange={(event) => {
+                    formik.setFieldValue("photo", event.currentTarget.files[0]);
+                  }}
+                />
+              </div>
+              {/* Display error message if touched and there's an error */}
+              {formik.touched.photo && formik.errors.photo && (
+                <p className="text-red-500 mb-4">{formik.errors.photo}</p>
+              )}
+
+              {/* Input field for Nominee Details upload */}
+              {error && (
+                <p className="text-center text-red-500 mb-4">{error}</p>
+              )}
+              <input
+                type="text"
+                className="w-full bg-gray-200 rounded-lg py-3 px-4 mb-4"
+                placeholder="Enter Nominee"
+                name="nomineeDetail"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.nomineeDetail}
+              />
+              {/* Display error message if touched and there's an error */}
+              {formik.touched.nomineeDetail && formik.errors.nomineeDetail && (
+                <p className="text-red-500 mb-4">
+                  {formik.errors.nomineeDetail}
+                </p>
+              )}
+
+              {/* Input field for Account Details upload */}
+              {error && (
+                <p className="text-center text-red-500 mb-4">{error}</p>
+              )}
+              <input
+                type="text"
+                className="w-full bg-gray-200 rounded-lg py-3 px-4 mb-4"
+                placeholder="Enter Account"
+                name="accountDetail"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.accountDetail}
+              />
+              {/* Display error message if touched and there's an error */}
+              {formik.touched.accountDetail && formik.errors.accountDetail && (
+                <p className="text-red-500 mb-4">
+                  {formik.errors.accountDetail}
+                </p>
+              )}
+
+              {/* Input field for Pan Number upload */}
+              {error && (
+                <p className="text-center text-red-500 mb-4">{error}</p>
+              )}
+              <input
+                type="text"
+                className="w-full bg-gray-200 rounded-lg py-3 px-4 mb-4"
+                placeholder="Enter Pan Number"
+                name="panNo"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.panNo}
+              />
+              {/* Display error message if touched and there's an error */}
+              {formik.touched.panNo && formik.errors.panNo && (
+                <p className="text-red-500 mb-4">
+                  {formik.errors.panNo}
+                </p>
+              )}
 
               {/* Agreement Checkbox */}
               <label className="flex items-center mb-4">

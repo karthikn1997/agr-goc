@@ -45,7 +45,7 @@ export default function Register() {
         theme: "colored",
       });
 
-      navigate("/login");
+      navigate("/kyc");
     } catch (err) {
       // Handle errors
       setLoading(false);
