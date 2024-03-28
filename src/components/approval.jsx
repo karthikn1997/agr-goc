@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const PaymentApprovalForm = () => {
-  const history = useHistory();
+
 
   const [formData, setFormData] = useState({
     date: "",
@@ -27,7 +27,7 @@ const PaymentApprovalForm = () => {
     console.log(formData);
 
     // Redirect to success page
-    history.push("/success");
+  
   };
 
   return (
@@ -72,12 +72,12 @@ const PaymentApprovalForm = () => {
                 required
               />
             </div>
-            <button
-              type="submit"
-              className="block bg-blue-500 text-white py-2 px-4 rounded-lg text-center hover:bg-blue-600 transition duration-300 ease-in-out"
-            >
-              Request Payment Approval
-            </button>
+            <Link
+            to="/approval"
+            className="block bg-blue-500 text-white py-2 px-4 rounded-lg text-center hover:bg-blue-600 transition duration-300 ease-in-out"
+          >
+            Send Payment Approval
+          </Link>
           </form>
         </div>
       </div>
