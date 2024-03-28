@@ -14,7 +14,6 @@ export default function KYCForm() {
   const navigate = useNavigate();
 
   const validationSchema = yup.object({
-    referenceId: yup.string().required("Reference ID is required"),
     addressProof: yup.string().required("Address proof is required"),
     photo: yup.string().required("Photo upload is required"),
     nomineeDetail: yup.string().required("Nominee detail is required"),
@@ -64,7 +63,7 @@ export default function KYCForm() {
 
   const formik = useFormik({
     initialValues: {
-      referenceId: "",
+      referenceId: "Ref123456", // Set default reference ID
       addressProof: "", // New field for address proof
       photo: "",
       nomineeDetail: "",
@@ -88,6 +87,7 @@ export default function KYCForm() {
               {error && (
                 <p className="text-center text-red-500 mb-4">{error}</p>
               )}
+              {/* Default Reference ID */}
               <input
                 type="text"
                 className="w-full bg-gray-200 rounded-lg py-3 px-4 mb-4"
@@ -96,6 +96,7 @@ export default function KYCForm() {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.referenceId}
+                disabled // Make it disabled
               />
               {/* Display error message if touched and there's an error */}
               {formik.touched.referenceId && formik.errors.referenceId && (
@@ -150,18 +151,17 @@ export default function KYCForm() {
               )}
 
               {/* Input field for Nominee Details upload */}
-              {error && (
-                <p className="text-center text-red-500 mb-4">{error}</p>
-              )}
-              <input
-                type="text"
-                className="w-full bg-gray-200 rounded-lg py-3 px-4 mb-4"
-                placeholder="Enter Nominee"
-                name="nomineeDetail"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.nomineeDetail}
-              />
+              <div className="mb-4">
+                <input
+                  type="text"
+                  className="w-full bg-gray-200 rounded-lg py-3 px-4 mb-4"
+                  placeholder="Enter Nominee"
+                  name="nomineeDetail"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.nomineeDetail}
+                />
+              </div>
               {/* Display error message if touched and there's an error */}
               {formik.touched.nomineeDetail && formik.errors.nomineeDetail && (
                 <p className="text-red-500 mb-4">
@@ -170,18 +170,17 @@ export default function KYCForm() {
               )}
 
               {/* Input field for Account Details upload */}
-              {error && (
-                <p className="text-center text-red-500 mb-4">{error}</p>
-              )}
-              <input
-                type="text"
-                className="w-full bg-gray-200 rounded-lg py-3 px-4 mb-4"
-                placeholder="Enter Account"
-                name="accountDetail"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.accountDetail}
-              />
+              <div className="mb-4">
+                <input
+                  type="text"
+                  className="w-full bg-gray-200 rounded-lg py-3 px-4 mb-4"
+                  placeholder="Enter Bank Account No"
+                  name="accountDetail"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.accountDetail}
+                />
+              </div>
               {/* Display error message if touched and there's an error */}
               {formik.touched.accountDetail && formik.errors.accountDetail && (
                 <p className="text-red-500 mb-4">
@@ -190,23 +189,20 @@ export default function KYCForm() {
               )}
 
               {/* Input field for Pan Number upload */}
-              {error && (
-                <p className="text-center text-red-500 mb-4">{error}</p>
-              )}
-              <input
-                type="text"
-                className="w-full bg-gray-200 rounded-lg py-3 px-4 mb-4"
-                placeholder="Enter Pan Number"
-                name="panNo"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.panNo}
-              />
+              <div className="mb-4">
+                <input
+                  type="text"
+                  className="w-full bg-gray-200 rounded-lg py-3 px-4 mb-4"
+                  placeholder="Enter Pan Number"
+                  name="panNo"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.panNo}
+                />
+              </div>
               {/* Display error message if touched and there's an error */}
               {formik.touched.panNo && formik.errors.panNo && (
-                <p className="text-red-500 mb-4">
-                  {formik.errors.panNo}
-                </p>
+                <p className="text-red-500 mb-4">{formik.errors.panNo}</p>
               )}
 
               {/* Agreement Checkbox */}

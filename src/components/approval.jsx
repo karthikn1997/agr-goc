@@ -2,13 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const PaymentApprovalForm = () => {
-
-
   const [formData, setFormData] = useState({
-    date: "",
-    paymentId: "",
-    referenceId: "",
-    amount: "",
+    amount: "5000", // Default Amount
     screenshot: null,
   });
 
@@ -27,7 +22,7 @@ const PaymentApprovalForm = () => {
     console.log(formData);
 
     // Redirect to success page
-  
+    // history.push("/success");
   };
 
   return (
@@ -55,7 +50,55 @@ const PaymentApprovalForm = () => {
                 required
               />
             </div>
-            {/* Add other form fields similar to Date input */}
+            <div className="mb-4">
+              <label
+                htmlFor="transactionId"
+                className="block text-gray-700 font-semibold mb-1"
+              >
+                Transaction Id
+              </label>
+              <input
+                type="text"
+                id="transactionId"
+                name="transactionId"
+                onChange={handleChange}
+                className="w-full bg-gray-200 rounded-lg py-3 px-4"
+                // Make it read-only
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="referenceId"
+                className="block text-gray-700 font-semibold mb-1"
+              >
+                Reference Id
+              </label>
+              <input
+                type="text"
+                id="referenceId"
+                name="referenceId"
+                onChange={handleChange}
+                className="w-full bg-gray-200 rounded-lg py-3 px-4"
+                // Make it read-only
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="amount"
+                className="block text-gray-700 font-semibold mb-1"
+              >
+                Amount
+              </label>
+              <input
+                type="number"
+                id="amount"
+                name="amount"
+                value={formData.amount}
+                onChange={handleChange}
+                className="w-full bg-gray-200 rounded-lg py-3 px-4"
+                readOnly // Make it read-only
+              />
+            </div>
             <div className="mb-4">
               <label
                 htmlFor="screenshot"
@@ -73,11 +116,11 @@ const PaymentApprovalForm = () => {
               />
             </div>
             <Link
-            to="/approval"
-            className="block bg-blue-500 text-white py-2 px-4 rounded-lg text-center hover:bg-blue-600 transition duration-300 ease-in-out"
-          >
-            Send Payment Approval
-          </Link>
+              to="/success"
+              className="block bg-blue-500 text-white py-2 px-4 rounded-lg text-center hover:bg-blue-600 transition duration-300 ease-in-out"
+            >
+              Send Payment Approval
+            </Link>
           </form>
         </div>
       </div>
