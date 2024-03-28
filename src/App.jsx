@@ -5,7 +5,9 @@ import Info from "./components/info";
 import Register from "./components/register";
 import KYCForm from "./components/kyc";
 import SuccessPage from "./components/success";
+import PaymentPage from "./components/payment";
 import "./App.css";
+
 
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/kyc" element={<KYCForm />} />
+        <Route path="/payment" element={<PaymentPage />} />
         <Route path="/success" element={<SuccessPage />} />
       </Routes>
     </Router>

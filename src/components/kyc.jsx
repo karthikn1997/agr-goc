@@ -43,7 +43,7 @@ export default function KYCForm() {
       });
 
       // Redirect to success page or home page
-      navigate("/success", {
+      navigate("/payment", {
         state: { message: "KYC submitted successfully" },
       });
     } catch (err) {
