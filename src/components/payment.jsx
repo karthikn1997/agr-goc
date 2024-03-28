@@ -15,7 +15,7 @@ const PaymentPage = ({ upiDetails }) => {
             />
           </div>
           <Link
-            to="/success"
+            to="/approval"
             className="block bg-blue-500 text-white py-2 px-4 rounded-lg text-center hover:bg-blue-600 transition duration-300 ease-in-out"
           >
             Go to Payment Approval Form
