@@ -18,7 +18,7 @@ export default function Info() {
   useEffect(() => {
     const delay = 7000; // 7 seconds delay
     const timeout = setTimeout(() => {
-      navigate("/login");
+      navigate("/register");
     }, delay);
 
     return () => clearTimeout(timeout);
