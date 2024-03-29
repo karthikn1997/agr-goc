@@ -4,7 +4,7 @@ import { FaQrcode } from "react-icons/fa";
 
 const PaymentPage = ({ upiDetails }) => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start py-5 md:py-0">
+    <div className="min-h-screen flex flex-col items-center justify-center py-5 md:py-0">
       <div className="container mx-auto flex items-center justify-center">
         <div className="w-full md:w-2/3 lg:w-1/2 xl:w-2/5 bg-white rounded-lg shadow-lg p-8">
           <div className="flex items-center justify-center mb-4">
