@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/login";
 import Info from "./components/info";
+import Dashboard from "./components/dashboard";
 import Register from "./components/register";
 import KYCForm from "./components/kyc";
 import SuccessPage from "./components/success";
@@ -14,6 +15,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Info />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/kyc" element={<KYCForm />} />
