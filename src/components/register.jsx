@@ -45,7 +45,7 @@ export default function Register() {
         theme: "colored",
       });
 
-      navigate("/kyc");
+      navigate("/dashboard");
     } catch (err) {
       // Handle errors
       setLoading(false);
@@ -78,7 +78,8 @@ export default function Register() {
   }
   return (
     <>
-      <div className="min-h-screen flex flex-col items-center justify-start py-5 md:py-0">
+      <div className="w-full min-h-screen flex flex-col justify-center items-center m-auto">
+      <div className="w-full flex flex-col items-center justify-start py-5 md:py-0">
         <div className="container mx-auto flex justify-center">
           <div className="w-full md:w-2/3 lg:w-1/2 xl:w-2/5 bg-white rounded-lg shadow-lg">
             <div className="px-8 py-8">
@@ -192,6 +193,7 @@ export default function Register() {
             </Link>
           </p>
         </div>
+      </div>
       </div>
     </>
   );
