@@ -60,7 +60,7 @@ function Sidebar() {
       animate={isExpanded ? "isExpanded" : "nonExpanded"}
       variants={variants}
       className={
-        "w-1/5 bg-gray-950 h-screen flex flex-col justify-between items-center relative gap-10 " +
+        "w-1/5 bg-gray-950 min-h-screen flex flex-col justify-between items-center relative gap-10 " +
         (isExpanded ? "py-8 px-6" : "px-8 py-6")
       }
     >
@@ -103,19 +103,23 @@ function Sidebar() {
         </div>
       </div>
 
+      <div className="">
+
+      </div>
+
       <div
         id="expanded-icon"
         className="bg-green-500 text-black p-2 rounded-full cursor-pointer absolute -right-4 bottom-20 md:bottom-40 md:flex hidden"
         onClick={() => setIsExpanded(!isExpanded)}
       >
-        <FaArrowRight/>
+        <FaArrowRight />
       </div>
 
       <div id="logout-box" className="w-full flex flex-col justify-start items-center gap-4 cursor-pointer">
         <div className="bg-slate-700 w-full h-[0.5px]"></div>
         <div className="flex justify-center items-center gap-2">
-          <MdLogout className="text-white w-8 h-8"/>
-          <span className={'text-white text-lg ' + (isExpanded? 'flex': 'hidden')}>Logout</span>
+          <MdLogout className="text-white w-8 h-8" />
+          <span className={'text-white text-lg ' + (isExpanded ? 'flex' : 'hidden')}>Logout</span>
         </div>
       </div>
     </motion.section>
