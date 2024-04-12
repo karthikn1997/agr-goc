@@ -94,11 +94,11 @@ const ProgressStepper = () => {
       referenceId: "Ref123456",
       name: "",
       guardian: "",
-      dob:"",
+      dob: "",
       address: "",
       mobileNumber: "",
       alternateMobileNumber: "",
-      addressProof: "", 
+      addressProof: "",
       photo: "",
       nomineeDetail: "",
       accountDetail: "",
@@ -137,8 +137,8 @@ const ProgressStepper = () => {
   const [selectedGender, setSelectedGender] = useState('');
 
   return (
-    <div className="mx-auto w-full h-screen">
-      <div className="bg-white pt-4 pb-4 mb-2">
+    <div className="mx-auto w-full flex justify-center items-center min-h-screen">
+      <div className="bg-white w-full lg:w-3/4 pt-4 pb-4 mb-2">
         <div>
           {/* <div className="text-xs uppercase font-bold text-gray-500 tracking-widest">
             Step {currentStep} of {steps.length}
@@ -157,7 +157,7 @@ const ProgressStepper = () => {
             ))}
           </div>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} action='/login'>
           {currentStep === 1 && (
             <div className="w-full flex flex-col items-center justify-start py-4 md:py-0">
               <div className="container mx-auto flex justify-center">
@@ -224,72 +224,7 @@ const ProgressStepper = () => {
                             )}
                           </div>
 
-                          <div className="mb-4">
-                            <label
-                              htmlFor="dob"
-                              className="block text-gray-700 font-semibold mb-1 text-left"
-                            >
-                              Date Of Birth
-                            </label>
-                            <input
-                              type="date"
-                              id="dob"
-                              name="dob"
-                              value={formData.dob}
-                              onChange={handleChange}
-                              className="w-full bg-gray-200 rounded-lg py-3 px-4"
-                              required
-                            />
-                          </div>
-
-                          <div>
-                            <label
-                              htmlFor="address"
-                              className="block text-gray-700 font-semibold mb-1 text-left"
-                            >
-                              Address
-                            </label>
-                            <textarea
-                              id="address"
-                              name="address"
-                              value={formData.address}
-                              onChange={handleChange}
-                              className="w-full bg-gray-200 rounded-lg py-3 px-4"
-                              required
-                            />
-                          </div>
-
-                          <div className='mb-1'>
-                            <input
-                              type="number"
-                              className="w-full bg-gray-200 rounded-lg py-2 px-4"
-                              placeholder="Mobile Number"
-                              name="mobileNumber"
-                              onChange={formik.handleChange}
-                              onBlur={formik.handleBlur}
-                              value={formik.values.mobileNumber}
-                            />
-                          </div>
-                          {/* Display error message if touched and there's an error */}
-                          {formik.touched.mobileNumber && formik.errors.mobileNumber && (
-                            <p className="text-red-500 mb-4">
-                              {formik.errors.mobileNumber}
-                            </p>
-                          )}
-
-                          <div className="mb-4">
-                            <input
-                              type="number"
-                              className="w-full bg-gray-200 rounded-lg py-2 px-4"
-                              placeholder="Alternate Mobile Number"
-                              name="alternateMobileNumber"
-                              onChange={formik.handleChange}
-                              onBlur={formik.handleBlur}
-                              value={formik.values.alternateMobileNumber}
-                            />
-                          </div>
-
-                          <div className='py-3 flex items-center gap-5 text-left'>
+                          <div className='py-1 flex items-center gap-5 text-left mb-1'>
                             <label className="block text-gray-700 font-semibold">Gender:</label>
                             <div className='w-full flex justify-around items-center'>
                               <label className='flex justify-around items-center gap-1'>
@@ -310,85 +245,111 @@ const ProgressStepper = () => {
                                 />
                                 Female
                               </label>
-                              <label className='flex justify-around items-center gap-1'>
-                                <input
-                                  type="radio"
-                                  value="other"
-                                  checked={selectedGender === 'other'}
-                                  onChange={handleChange}
-                                />
-                                Other
-                              </label>
                             </div>
                           </div>
+
+                          <div className="mb-4">
+                            <label
+                              htmlFor="dob"
+                              className="block text-gray-700 font-semibold mb-1 text-left"
+                            >
+                              Date Of Birth
+                            </label>
+                            <input
+                              type="date"
+                              id="dob"
+                              name="dob"
+                              value={formData.dob}
+                              onChange={handleChange}
+                              className="w-full bg-gray-200 rounded-lg py-3 px-4"
+                              required
+                            />
+                          </div>
+
+
+                          <div>
+                            <label
+                              htmlFor="address"
+                              className="block text-gray-700 font-semibold mb-1 text-left"
+                            >
+                              Address For Communication
+                            </label>
+                            <textarea
+                              id="address"
+                              name="address"
+                              value={formData.address}
+                              onChange={handleChange}
+                              className="w-full bg-gray-200 rounded-lg py-3 px-4"
+                              required
+                            />
+                          </div>
+
+                          <div className='mb-1'>
+                            <input
+                              type="number"
+                              className="w-full bg-gray-200 rounded-lg py-3 px-4"
+                              placeholder="Mobile Number"
+                              name="mobileNumber"
+                              onChange={formik.handleChange}
+                              onBlur={formik.handleBlur}
+                              value={formik.values.mobileNumber}
+                            />
+                          </div>
+                          {/* Display error message if touched and there's an error */}
+                          {formik.touched.mobileNumber && formik.errors.mobileNumber && (
+                            <p className="text-red-500 mb-4">
+                              {formik.errors.mobileNumber}
+                            </p>
+                          )}
+ 
+                            {/* Agreement Checkbox */}
+                          <label className="flex items-center py-3">
+                            <input
+                              type="checkbox"
+                              name="agree"
+                              onChange={formik.handleChange}
+                              onBlur={formik.handleBlur}
+                              checked={formik.values.agree}
+                              className="form-checkbox h-5 w-5 text-blue-600"
+                            />
+                            <span className="ml-2 text-gray-700">
+                              I certify that above details are correct
+                            </span>
+                          </label>
 
                         </div>
 
                         {/* Input field for Mobile Number upload */}
                         <div className='w-full md:w-1/2 p-5'>
 
-
-                          <div className="mb-4">
-                            <input
-                              type="text"
-                              className="w-full bg-gray-200 rounded-lg py-3 px-4"
-                              placeholder="Enter Nominee Name"
-                              name="nomineeDetail"
-                              onChange={formik.handleChange}
-                              onBlur={formik.handleBlur}
-                              value={formik.values.nomineeDetail}
-                            />
-                          </div>
-                          {/* Display error message if touched and there's an error */}
-                          {formik.touched.nomineeDetail && formik.errors.nomineeDetail && (
-                            <p className="text-red-500 mb-4">
-                              {formik.errors.nomineeDetail}
-                            </p>
-                          )}
-
-                          <input
-                            type="text"
-                            className="w-full bg-gray-200 rounded-lg py-3 px-4 mb-4"
-                            placeholder="Nominee Relationship"
-                            name="relation"
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.relation}
-                          />
-
-                          <div className='text-start'>
-                            <label htmlFor="selectInput" className='block text-gray-700 font-semibold mb-1 text-left'>ID Proof</label>
-                            <select
-                              id="selectInput"
-                              className="w-full bg-gray-200 rounded-lg py-2 px-4 mb-1"
-                              name="idProof"
-                              onChange={formik.handleChange}
-                              onBlur={formik.handleBlur}
-                              value={formik.values.idProof}
-                            >
-                              <option value="">-- Please select --</option>
-                              <option value="option1">Aadhar Card</option>
-                              <option value="option2">Pan Card</option>
-                              <option value="option3">Driving Lincence</option>
-                            </select>
-                          </div>
-
-                          <div className="mb-4">
+                        <div className="mb-4">
                             <input
                               type="number"
-                              className="w-full bg-gray-200 rounded-lg py-2 px-4"
-                              placeholder="ID Proof Number"
-                              name="idProofNo"
+                              className="w-full bg-gray-200 rounded-lg py-3 px-4"
+                              placeholder="Alternate Mobile Number"
+                              name="alternateMobileNumber"
                               onChange={formik.handleChange}
                               onBlur={formik.handleBlur}
                               value={formik.values.alternateMobileNumber}
                             />
                           </div>
 
+                          <div className="mb-4">
+                            <input
+                              type="number"
+                              className="w-full bg-gray-200 rounded-lg py-3 px-4"
+                              placeholder="Aadhar Number"
+                              name="aadharNo"
+                              onChange={formik.handleChange}
+                              onBlur={formik.handleBlur}
+                              value={formik.values.aadharNo}
+                            />
+                          </div>
+
                           {/* Input field for address proof upload */}
                           <div className="mb-4">
                             <label htmlFor="addressProof" className="block text-gray-700 font-semibold mb-1 text-left">
-                              Upload ID Proof:
+                              Upload Aadhar proof:
                             </label>
                             <input
                               type="file"
@@ -432,20 +393,33 @@ const ProgressStepper = () => {
                             <p className="text-red-500 mb-4">{formik.errors.photo}</p>
                           )}
 
-                          {/* Agreement Checkbox */}
-                          <label className="flex items-center py-3">
+                          <div className="mb-4">
                             <input
-                              type="checkbox"
-                              name="agree"
+                              type="text"
+                              className="w-full bg-gray-200 rounded-lg py-3 px-4"
+                              placeholder="Enter Nominee Name"
+                              name="nomineeDetail"
                               onChange={formik.handleChange}
                               onBlur={formik.handleBlur}
-                              checked={formik.values.agree}
-                              className="form-checkbox h-5 w-5 text-blue-600"
+                              value={formik.values.nomineeDetail}
                             />
-                            <span className="ml-2 text-gray-700">
-                              I certify that above details are correct
-                            </span>
-                          </label>
+                          </div>
+                          {/* Display error message if touched and there's an error */}
+                          {formik.touched.nomineeDetail && formik.errors.nomineeDetail && (
+                            <p className="text-red-500 mb-4">
+                              {formik.errors.nomineeDetail}
+                            </p>
+                          )}
+
+                          <input
+                            type="text"
+                            className="w-full bg-gray-200 rounded-lg py-3 px-4 mb-4"
+                            placeholder="Nominee Relationship"
+                            name="relation"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.relation}
+                          />
 
                         </div>
                       </div>
@@ -561,17 +535,6 @@ const ProgressStepper = () => {
                           </p>
                         )}
 
-                        <div className="mb-4">
-                          <input
-                            type="text"
-                            className="w-full bg-gray-200 rounded-lg py-3 px-4"
-                            placeholder="UPI ID"
-                            name="upiId"
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.branch}
-                          />
-                        </div>
 
                       </div>
 
@@ -673,7 +636,7 @@ const ProgressStepper = () => {
                             htmlFor="date"
                             className="block text-gray-700 font-semibold mb-1"
                           >
-                            Date
+                            Payment Date
                           </label>
                           <input
                             type="date"
@@ -709,7 +672,7 @@ const ProgressStepper = () => {
                             htmlFor="referenceId"
                             className="block text-gray-700 font-semibold mb-1"
                           >
-                            Reference Id
+                            Referral ID(If any)
                           </label>
                           <input
                             type="text"
@@ -745,7 +708,7 @@ const ProgressStepper = () => {
                         htmlFor="screenshot"
                         className="block text-gray-700 font-semibold mb-1"
                       >
-                        Reference Screenshot
+                        Payment Screenshot
                       </label>
                       <input
                         type="file"
@@ -817,10 +780,11 @@ const ProgressStepper = () => {
                   </button>
                 )}
               </div>
+              <Link to={'/login'}>
+                ok
+              </Link>
             </div>
-
           )}
-
         </form>
       </div>
     </div>

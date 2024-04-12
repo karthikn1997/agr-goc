@@ -15,7 +15,6 @@ export default function Register() {
 
   const validation = yup.object({
     firstName: yup.string().required("Enter First Name"),
-    lastName: yup.string().required("Enter Last Name"),
     email: yup
       .string()
       .required("Email is required")
@@ -45,7 +44,7 @@ export default function Register() {
         theme: "colored",
       });
 
-      navigate("/dashboard");
+      navigate("/kyc");
     } catch (err) {
       // Handle errors
       setLoading(false);
@@ -96,25 +95,11 @@ export default function Register() {
                 <input
                   type="text"
                   className="w-full bg-gray-200 rounded-lg py-3 px-4 mb-4"
-                  placeholder="Enter Firstname"
+                  placeholder="Enter Your Name"
                   name="firstName"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.firstName}
-                />
-                {error ? (
-                  <p className="text-center text-red-500 mb-4">{error}</p>
-                ) : (
-                  ""
-                )}
-                <input
-                  type="text"
-                  className="w-full bg-gray-200 rounded-lg py-3 px-4 mb-4"
-                  placeholder="Enter Lastname"
-                  name="lastName"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.lastName}
                 />
                 {error ? (
                   <p className="text-center text-red-500 mb-4">{error}</p>

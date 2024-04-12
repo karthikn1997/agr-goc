@@ -45,7 +45,7 @@ export default function Login() {
         theme: "colored",
       });
 
-      navigate("/home", { state: { message: "Hi" } });
+      navigate("/dashboard", { state: { message: "Hi" } });
     } catch (err) {
       setLoading(false);
       setError("Email or password is not valid");
@@ -77,7 +77,7 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-start py-5 md:py-0">
-      <div className="container mx-auto flex justify-center">
+      <div className="container mx-auto flex justify-center items-center min-h-screen ">
         <div className="w-full md:w-2/3 lg:w-1/2 xl:w-2/5 bg-white rounded-lg shadow-lg">
           <div className="px-8 py-8">
             <h1 className="text-center text-3xl font-bold text-gray-800 mb-8">
